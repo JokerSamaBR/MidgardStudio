@@ -11,8 +11,10 @@
                  d:DataContext="{d:DesignInstance Type=vm:ShellViewModel}"
                  Title="Midgard Studio — WYO Digital"
                  Icon="/Assets/logo.png"
-                 Width="1320" Height="860"
-                 MinWidth="980" MinHeight="640"
+                 Width="1100" Height="720"
+                 MinWidth="900" MinHeight="600"
+                 WindowState="Normal"
+                 ResizeMode="CanResize"
                  WindowBackdropType="Mica"
                  ExtendsContentIntoTitleBar="True"
                  WindowStartupLocation="CenterScreen">
