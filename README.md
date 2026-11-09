@@ -8,6 +8,16 @@
 
 </div>
 
+## Imagens do aplicativo
+
+Capturas e materiais visuais existentes no próprio repositório:
+
+![Midgard Studio WYO Digital Edition — captura do aplicativo](screenshots/readme.png)
+
+![Midgard Studio WYO Digital Edition — imagem de apresentação do projeto](screenshots/banner.png)
+
+> Imagens versionadas em `screenshots/`. A captura documenta uma versão do aplicativo e pode apresentar elementos de interface anteriores à edição mais recente. Consulte a [Release atual](../../releases) para baixar o executável.
+
 ## Download — aplicativo pronto
 
 **[Baixar a versão Windows em Releases](../../releases)**
