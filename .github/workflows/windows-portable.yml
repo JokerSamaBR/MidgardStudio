@@ -74,18 +74,22 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Baixar metadados da versão
+        uses: actions/checkout@v4
       - name: Baixar pacote já testado
         uses: actions/download-artifact@v4
         with:
           name: MidgardStudio_WYO_Digital_Windows_x64
           path: dist
-      - name: Criar a primeira release de preview
+      - name: Publicar release de preview da versão atual
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
-          TAG="v1.2.0-wyo-preview.1"
+          VERSION=$(sed -n "s:.*<Version>\([^<]*\)</Version>.*:\1:p" Directory.Build.props | head -n 1)
+          test -n "$VERSION" || { echo "Versão ausente em Directory.Build.props"; exit 1; }
+          TAG="v${VERSION}-wyo-preview.1"
           if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
             echo "Release $TAG já existe; nenhuma sobrescrita foi realizada."
             exit 0
@@ -95,6 +99,6 @@ jobs:
             dist/SHA256SUMS.txt \
             --repo "$GITHUB_REPOSITORY" \
             --target "$GITHUB_SHA" \
-            --title "Midgard Studio WYO Digital 1.2.0 — Preview" \
+            --title "Midgard Studio WYO Digital ${VERSION} — Preview" \
             --notes "Aplicativo portátil Windows x64 (self-contained). Extraia em D:\GAME\MidgardStudio_WYO_Digital\App e execute Iniciar_WYO_Studio.bat. Mantém créditos e licença original MIT + Commons Clause. Compilação e testes automatizados aprovados; teste visual manual em Windows ainda recomendado." \
             --prerelease

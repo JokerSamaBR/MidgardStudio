@@ -37,3 +37,9 @@
 - Testes visuais em Windows real e melhorias de performance de GRF grandes.
 
 Nenhuma dessas melhorias futuras é marcada como pronta nesta versão.
+
+
+
+## Idiomas da interface
+
+O menu **Language** permite alternar entre inglês e português brasileiro sem reiniciar. A opção é guardada em `app-settings.json` e começa em inglês. Nesta etapa, os textos estáticos da janela principal estão localizados; painéis internos e mensagens de domínio ainda podem aparecer em inglês. A configuração não altera o idioma dos dados do jogo.

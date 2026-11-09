@@ -4,7 +4,7 @@
 
 **Editor de dados de servidor e cliente — Windows 10/11 x64**
 
-**Edição WYO Digital 1.2.0** · Aplicativo portátil · Sem instalação do .NET · Gratuito para uso permitido pela licença
+**Edição WYO Digital 1.2.1 Preview** · Aplicativo portátil · Sem instalação do .NET · Gratuito para uso permitido pela licença
 
 </div>
 
@@ -91,3 +91,12 @@ O verificador do aplicativo consulta **somente as Releases desta edição WYO Di
 Acompanhe as novidades públicas da WYO em [www.wyoplay.com](https://www.wyoplay.com/) e [digital.wyoplay.com](https://digital.wyoplay.com/).
 
 Consulte [CHANGELOG](CHANGELOG.md) e [WYO Edition](docs/WYO_EDITION.md) para diferenças em relação à base.
+
+
+## Idioma da interface
+
+No menu superior, escolha **Language → English** ou **Language → Português (Brasil)**. O idioma inicial é inglês; a escolha fica salva nas preferências do aplicativo e é restaurada na próxima abertura. A tradução atual cobre o menu principal e os comandos estáticos da janela principal. Algumas ferramentas e mensagens internas continuam em inglês enquanto os demais módulos são localizados. A troca não modifica arquivos YAML, GRF nem dados do servidor.
+
+### Janela inicial
+
+O aplicativo abre em janela normal de **1100 × 720** (unidades WPF), centralizada. O usuário pode maximizar ou redimensionar manualmente pelos controles do Windows. Dimensão mínima: 900 × 600. Não força tela cheia na inicialização.

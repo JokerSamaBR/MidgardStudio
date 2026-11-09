@@ -29,6 +29,7 @@ public enum ValidationGateMode
 /// <summary>App-wide preferences (not tied to a server profile).</summary>
 public sealed class AppSettings
 {
+    public string Language { get; set; } = "en"; // en or pt-BR; kept with other app preferences
     public SaveMode SaveMode { get; set; } = SaveMode.Manual;
     public int SaveIntervalSeconds { get; set; } = 60;
 

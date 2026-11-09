@@ -11,8 +11,10 @@
                  d:DataContext="{d:DesignInstance Type=vm:ShellViewModel}"
                  Title="Midgard Studio — WYO Digital"
                  Icon="/Assets/logo.png"
-                 Width="1320" Height="860"
-                 MinWidth="980" MinHeight="640"
+                 Width="1100" Height="720"
+                 MinWidth="900" MinHeight="600"
+                 WindowState="Normal"
+                 ResizeMode="CanResize"
                  WindowBackdropType="Mica"
                  ExtendsContentIntoTitleBar="True"
                  WindowStartupLocation="CenterScreen">
@@ -91,7 +93,7 @@
                         <TextBlock Text="{Binding FilePath}" Opacity="0.6" FontFamily="Consolas"
                                    TextWrapping="Wrap" TextAlignment="Center" />
                     </Border>
-                    <TextBlock Text="Editor coming online in a later phase." Opacity="0.45"
+                    <TextBlock Text="{DynamicResource Loc_45_64_69_74_6f_72_20_63_6f_6d_69_6e_67_20_6f_6e_6c_69_6e_65_20_69_6e_20_61_20_6c_61_74_65_72_20_70_68_61_73_65_2e}" Opacity="0.45"
                                HorizontalAlignment="Center" Margin="0,16,0,0" FontStyle="Italic" />
                 </StackPanel>
             </ui:Card>
@@ -149,7 +151,7 @@
                                             BorderThickness="{TemplateBinding BorderThickness}">
                                         <StackPanel Orientation="Horizontal">
                                             <ui:SymbolIcon Symbol="ArrowDownload24" FontSize="12" Foreground="#ECE3FF" VerticalAlignment="Center" />
-                                            <TextBlock Text="Update Available" Foreground="#F4EEFF" FontSize="11" FontWeight="SemiBold" Margin="5,0,0,0" VerticalAlignment="Center" />
+                                            <TextBlock Text="{DynamicResource Loc_55_70_64_61_74_65_20_41_76_61_69_6c_61_62_6c_65}" Foreground="#F4EEFF" FontSize="11" FontWeight="SemiBold" Margin="5,0,0,0" VerticalAlignment="Center" />
                                         </StackPanel>
                                     </Border>
                                 </ControlTemplate>
@@ -187,16 +189,16 @@
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                             <ui:SymbolIcon Symbol="Sparkle24" Foreground="#C9B6FF" FontSize="15" VerticalAlignment="Center" />
-                            <TextBlock Text="Update available" FontWeight="SemiBold" Foreground="#F2ECFF" FontSize="14" Margin="8,0,0,0" VerticalAlignment="Center" />
+                            <TextBlock Text="{DynamicResource Loc_55_70_64_61_74_65_20_61_76_61_69_6c_61_62_6c_65}" FontWeight="SemiBold" Foreground="#F2ECFF" FontSize="14" Margin="8,0,0,0" VerticalAlignment="Center" />
                         </StackPanel>
                         <TextBlock Foreground="#E8DEFF" FontSize="20" FontWeight="Bold" Text="{Binding LatestVersion}" />
                         <TextBlock Text="{Binding UpdateMessage}" Foreground="#B3A4DC" FontSize="12" TextWrapping="Wrap" Margin="0,2,0,12" />
                         <StackPanel Orientation="Horizontal">
-                            <ui:Button Content="View release" Appearance="Primary" Command="{Binding OpenUpdateCommand}" Click="OnUpdateActionClicked">
+                            <ui:Button Content="{DynamicResource Loc_56_69_65_77_20_72_65_6c_65_61_73_65}" Appearance="Primary" Command="{Binding OpenUpdateCommand}" Click="OnUpdateActionClicked">
                                 <ui:Button.Icon><ui:SymbolIcon Symbol="Open24" /></ui:Button.Icon>
                             </ui:Button>
                             <!-- Dismiss only closes this popup; it never hides the pill. -->
-                            <ui:Button Content="Dismiss" Margin="8,0,0,0" Click="OnUpdateActionClicked" />
+                            <ui:Button Content="{DynamicResource Loc_44_69_73_6d_69_73_73}" Margin="8,0,0,0" Click="OnUpdateActionClicked" />
                         </StackPanel>
                     </StackPanel>
                 </Border>
@@ -208,31 +210,31 @@
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <Menu VerticalAlignment="Center" Background="Transparent">
-                    <MenuItem Header="_File">
-                        <MenuItem Header="_Forge new item…" Command="{Binding OpenForgeCommand}"
+                    <MenuItem Header="{DynamicResource Loc_5f_46_69_6c_65}">
+                        <MenuItem Header="{DynamicResource Loc_5f_46_6f_72_67_65_20_6e_65_77_20_69_74_65_6d_2026}" Command="{Binding OpenForgeCommand}"
                                   ToolTip="Create a complete custom item (server + client + sprite) in one flow">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="Add24" /></MenuItem.Icon>
                         </MenuItem>
                         <Separator />
-                        <MenuItem Header="_Save" InputGestureText="Ctrl+S" Command="{Binding SaveCommand}"
+                        <MenuItem Header="{DynamicResource Loc_5f_53_61_76_65}" InputGestureText="Ctrl+S" Command="{Binding SaveCommand}"
                                   ToolTip="Write pending changes (only modified files are rewritten)">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="Save24" /></MenuItem.Icon>
                         </MenuItem>
                         <Separator />
-                        <MenuItem Header="Reveal _import folder" Command="{Binding RevealImportFolderCommand}">
+                        <MenuItem Header="{DynamicResource Loc_52_65_76_65_61_6c_20_5f_69_6d_70_6f_72_74_20_66_6f_6c_64_65_72}" Command="{Binding RevealImportFolderCommand}">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="Folder24" /></MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="Open client _lua folder" Command="{Binding OpenLuaFolderCommand}">
+                        <MenuItem Header="{DynamicResource Loc_4f_70_65_6e_20_63_6c_69_65_6e_74_20_5f_6c_75_61_20_66_6f_6c_64_65_72}" Command="{Binding OpenLuaFolderCommand}">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="Folder24" /></MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="_Reload Database" Command="{Binding ReloadDataCommand}">
+                        <MenuItem Header="{DynamicResource Loc_5f_52_65_6c_6f_61_64_20_44_61_74_61_62_61_73_65}" Command="{Binding ReloadDataCommand}">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="ArrowClockwise24" /></MenuItem.Icon>
                         </MenuItem>
                         <Separator />
-                        <MenuItem Header="_Profiles &amp; configuration…" InputGestureText="Ctrl+," Command="{Binding OpenWizardCommand}">
+                        <MenuItem Header="{DynamicResource Loc_5f_50_72_6f_66_69_6c_65_73_20_26_20_63_6f_6e_66_69_67_75_72_61_74_69_6f_6e_2026}" InputGestureText="Ctrl+," Command="{Binding OpenWizardCommand}">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="Settings24" /></MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="S_witch profile" ItemsSource="{Binding Profiles}">
+                        <MenuItem Header="{DynamicResource Loc_53_5f_77_69_74_63_68_20_70_72_6f_66_69_6c_65}" ItemsSource="{Binding Profiles}">
                             <MenuItem.ItemContainerStyle>
                                 <Style TargetType="MenuItem" BasedOn="{StaticResource {x:Type MenuItem}}">
                                     <Setter Property="Header" Value="{Binding Name}" />
@@ -246,71 +248,75 @@
                             </MenuItem.ItemContainerStyle>
                         </MenuItem>
                         <Separator />
-                        <MenuItem Header="Se_ttings" Command="{Binding OpenSettingsCommand}">
+                        <MenuItem Header="{DynamicResource Loc_53_65_5f_74_74_69_6e_67_73}" Command="{Binding OpenSettingsCommand}">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="Settings24" /></MenuItem.Icon>
                         </MenuItem>
                         <Separator />
-                        <MenuItem Header="E_xit" Command="{Binding ExitCommand}" />
+                        <MenuItem Header="{DynamicResource Loc_45_5f_78_69_74}" Command="{Binding ExitCommand}" />
                     </MenuItem>
 
-                    <MenuItem Header="_Edit">
-                        <MenuItem Header="_Undo" InputGestureText="Ctrl+Z" Command="{Binding UndoCommand}">
+                    <MenuItem Header="{DynamicResource Loc_5f_45_64_69_74}">
+                        <MenuItem Header="{DynamicResource Loc_5f_55_6e_64_6f}" InputGestureText="Ctrl+Z" Command="{Binding UndoCommand}">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="ArrowUndo24" /></MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="_Redo" InputGestureText="Ctrl+Y" Command="{Binding RedoCommand}">
+                        <MenuItem Header="{DynamicResource Loc_5f_52_65_64_6f}" InputGestureText="Ctrl+Y" Command="{Binding RedoCommand}">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="ArrowRedo24" /></MenuItem.Icon>
                         </MenuItem>
                         <Separator />
-                        <MenuItem Header="_Quick open…" InputGestureText="Ctrl+K" Command="{Binding OpenPaletteCommand}" />
+                        <MenuItem Header="{DynamicResource Loc_5f_51_75_69_63_6b_20_6f_70_65_6e_2026}" InputGestureText="Ctrl+K" Command="{Binding OpenPaletteCommand}" />
                     </MenuItem>
 
-                    <MenuItem Header="_View">
-                        <MenuItem Header="_Go to">
-                            <MenuItem Header="Server Items" Command="{Binding GoSectionCommand}" CommandParameter="items" />
-                            <MenuItem Header="Client Items" Command="{Binding GoSectionCommand}" CommandParameter="client_items" />
-                            <MenuItem Header="Mobs" Command="{Binding GoSectionCommand}" CommandParameter="mobs" />
-                            <MenuItem Header="Pets" Command="{Binding GoSectionCommand}" CommandParameter="pets" />
-                            <MenuItem Header="Skills" Command="{Binding GoSectionCommand}" CommandParameter="skills" />
-                            <MenuItem Header="Item Combos" Command="{Binding GoSectionCommand}" CommandParameter="combos" />
-                            <MenuItem Header="Item Groups" Command="{Binding GoSectionCommand}" CommandParameter="groups" />
+                    <MenuItem Header="{DynamicResource Loc_5f_56_69_65_77}">
+                        <MenuItem Header="{DynamicResource Loc_5f_47_6f_20_74_6f}">
+                            <MenuItem Header="{DynamicResource Loc_53_65_72_76_65_72_20_49_74_65_6d_73}" Command="{Binding GoSectionCommand}" CommandParameter="items" />
+                            <MenuItem Header="{DynamicResource Loc_43_6c_69_65_6e_74_20_49_74_65_6d_73}" Command="{Binding GoSectionCommand}" CommandParameter="client_items" />
+                            <MenuItem Header="{DynamicResource Loc_4d_6f_62_73}" Command="{Binding GoSectionCommand}" CommandParameter="mobs" />
+                            <MenuItem Header="{DynamicResource Loc_50_65_74_73}" Command="{Binding GoSectionCommand}" CommandParameter="pets" />
+                            <MenuItem Header="{DynamicResource Loc_53_6b_69_6c_6c_73}" Command="{Binding GoSectionCommand}" CommandParameter="skills" />
+                            <MenuItem Header="{DynamicResource Loc_49_74_65_6d_20_43_6f_6d_62_6f_73}" Command="{Binding GoSectionCommand}" CommandParameter="combos" />
+                            <MenuItem Header="{DynamicResource Loc_49_74_65_6d_20_47_72_6f_75_70_73}" Command="{Binding GoSectionCommand}" CommandParameter="groups" />
                         </MenuItem>
                         <Separator />
-                        <MenuItem Header="_System">
-                            <MenuItem Header="Renewal" IsCheckable="False" Command="{Binding EnableRenewalCommand}"
+                        <MenuItem Header="{DynamicResource Loc_5f_53_79_73_74_65_6d}">
+                            <MenuItem Header="{DynamicResource Loc_52_65_6e_65_77_61_6c}" IsCheckable="False" Command="{Binding EnableRenewalCommand}"
                                       IsChecked="{Binding IsRenewal, Mode=OneWay}" />
-                            <MenuItem Header="Pre-Renewal" IsCheckable="False" Command="{Binding EnablePreRenewalCommand}"
+                            <MenuItem Header="{DynamicResource Loc_50_72_65_2d_52_65_6e_65_77_61_6c}" IsCheckable="False" Command="{Binding EnablePreRenewalCommand}"
                                       IsChecked="{Binding IsRenewal, Converter={StaticResource InverseBool}, Mode=OneWay}" />
                         </MenuItem>
                     </MenuItem>
 
-                    <MenuItem Header="_Tools">
-                        <MenuItem Header="_GRF Browser" Command="{Binding GoSectionCommand}" CommandParameter="grf">
+                    <MenuItem Header="{DynamicResource Loc_5f_54_6f_6f_6c_73}">
+                        <MenuItem Header="{DynamicResource Loc_5f_47_52_46_20_42_72_6f_77_73_65_72}" Command="{Binding GoSectionCommand}" CommandParameter="grf">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="FolderZip24" /></MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="_Validation" Command="{Binding GoSectionCommand}" CommandParameter="validation">
+                        <MenuItem Header="{DynamicResource Loc_5f_56_61_6c_69_64_61_74_69_6f_6e}" Command="{Binding GoSectionCommand}" CommandParameter="validation">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="Checkmark24" /></MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="_Map Cache Editor" Command="{Binding OpenMapCacheEditorCommand}">
+                        <MenuItem Header="{DynamicResource Loc_5f_4d_61_70_20_43_61_63_68_65_20_45_64_69_74_6f_72}" Command="{Binding OpenMapCacheEditorCommand}">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="Map24" /></MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="_Cash Shop Manager" Command="{Binding OpenCashShopManagerCommand}">
+                        <MenuItem Header="{DynamicResource Loc_5f_43_61_73_68_20_53_68_6f_70_20_4d_61_6e_61_67_65_72}" Command="{Binding OpenCashShopManagerCommand}">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="Cart24" /></MenuItem.Icon>
                         </MenuItem>
                         <Separator />
-                        <MenuItem Header="_Backup Manager" Command="{Binding OpenBackupManagerCommand}">
+                        <MenuItem Header="{DynamicResource Loc_5f_42_61_63_6b_75_70_20_4d_61_6e_61_67_65_72}" Command="{Binding OpenBackupManagerCommand}">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="Save24" /></MenuItem.Icon>
                         </MenuItem>
                     </MenuItem>
 
-                    <MenuItem Header="_Help">
-                        <MenuItem Header="_Check for Updates…" Command="{Binding CheckForUpdatesCommand}">
+                    <MenuItem Header="{DynamicResource Loc_4c_61_6e_67_75_61_67_65}">
+                        <MenuItem x:Name="EnglishLanguageMenu" Header="{DynamicResource Loc_45_6e_67_6c_69_73_68}" IsCheckable="True" Click="SelectEnglishLanguage" />
+                        <MenuItem x:Name="PortugueseLanguageMenu" Header="{DynamicResource Loc_50_6f_72_74_75_67_75_ea_73_20_28_42_72_61_73_69_6c_29}" IsCheckable="True" Click="SelectPortugueseLanguage" />
+                    </MenuItem>
+                    <MenuItem Header="{DynamicResource Loc_5f_48_65_6c_70}">
+                        <MenuItem Header="{DynamicResource Loc_5f_43_68_65_63_6b_20_66_6f_72_20_55_70_64_61_74_65_73_2026}" Command="{Binding CheckForUpdatesCommand}">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="ArrowSync24" /></MenuItem.Icon>
                         </MenuItem>
                         <Separator />
-                        <MenuItem Header="_Documentation" Command="{Binding OpenDocsCommand}">
+                        <MenuItem Header="{DynamicResource Loc_5f_44_6f_63_75_6d_65_6e_74_61_74_69_6f_6e}" Command="{Binding OpenDocsCommand}">
                             <MenuItem.Icon><ui:SymbolIcon Symbol="Open24" /></MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="_About WYO Digital Edition" Command="{Binding AboutCommand}">
+                        <MenuItem Header="{DynamicResource Loc_5f_41_62_6f_75_74_20_57_59_4f_20_44_69_67_69_74_61_6c_20_45_64_69_74_69_6f_6e}" Command="{Binding AboutCommand}">
                             <MenuItem.Icon><Image Source="/Assets/logo.png" Width="16" Height="16" /></MenuItem.Icon>
                         </MenuItem>
                     </MenuItem>
@@ -383,7 +389,7 @@
                                 Visibility="{Binding ActiveWorkspace.Editor.HasRecord, Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}">
                         <ui:Button Content="YAML" Command="{Binding ActiveWorkspace.ShowYamlCommand}" Margin="0,0,6,0"
                                    ToolTip="Preview the YAML written to the import file" />
-                        <ui:Button Content="Copy to Import to edit" Appearance="Primary"
+                        <ui:Button Content="{DynamicResource Loc_43_6f_70_79_20_74_6f_20_49_6d_70_6f_72_74_20_74_6f_20_65_64_69_74}" Appearance="Primary"
                                    Command="{Binding ActiveWorkspace.Editor.CreateOverrideCommand}"
                                    Visibility="{Binding ActiveWorkspace.Editor.IsEditable, Converter={StaticResource BoolToVis}, ConverterParameter=invert, FallbackValue=Collapsed}" />
                         <Border Width="1" Height="18" Background="#22FFFFFF" Margin="8,0" />
@@ -392,11 +398,11 @@
                     <!-- Item Combos actions (only on that screen) -->
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
                                 Visibility="{Binding ActiveCombo, Converter={StaticResource NotNullToVis}, FallbackValue=Collapsed}">
-                        <ui:Button Content="Copy to Import to edit" Appearance="Primary" Margin="0,0,6,0"
+                        <ui:Button Content="{DynamicResource Loc_43_6f_70_79_20_74_6f_20_49_6d_70_6f_72_74_20_74_6f_20_65_64_69_74}" Appearance="Primary" Margin="0,0,6,0"
                                    Command="{Binding ActiveCombo.CreateOverrideCommand}"
                                    Visibility="{Binding ActiveCombo.IsBaseSelected, Converter={StaticResource BoolToVis}, FallbackValue=Collapsed}"
                                    ToolTip="Make this base combo editable (copy-on-write)" />
-                        <ui:Button Content="New combo" Command="{Binding ActiveCombo.AddComboSetCommand}"
+                        <ui:Button Content="{DynamicResource Loc_4e_65_77_20_63_6f_6d_62_6f}" Command="{Binding ActiveCombo.AddComboSetCommand}"
                                    ToolTip="Create a new custom combo">
                             <ui:Button.Icon><ui:SymbolIcon Symbol="Add24" /></ui:Button.Icon>
                         </ui:Button>
@@ -414,7 +420,7 @@
                                     <Border x:Name="Fill" CornerRadius="6" Margin="2" Background="#0C0C12" Padding="13,6">
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                                             <ui:SymbolIcon Symbol="Save24" FontSize="16" Foreground="White" VerticalAlignment="Center" />
-                                            <TextBlock Text="Save" Foreground="White" FontWeight="Medium" Margin="7,0,0,0" VerticalAlignment="Center" />
+                                            <TextBlock Text="{DynamicResource Loc_53_61_76_65}" Foreground="White" FontWeight="Medium" Margin="7,0,0,0" VerticalAlignment="Center" />
                                         </StackPanel>
                                     </Border>
                                 </Grid>
@@ -517,7 +523,7 @@
                      Background="#FF1E1E26" BorderBrush="#33FFFFFF" BorderThickness="1">
                 <DockPanel>
                     <ui:TextBox x:Name="PaletteSearchBox" DockPanel.Dock="Top"
-                                PlaceholderText="Search any database by id / aegis / name…"
+                                PlaceholderText="{DynamicResource Loc_53_65_61_72_63_68_20_61_6e_79_20_64_61_74_61_62_61_73_65_20_62_79_20_69_64_20_2f_20_61_65_67_69_73_20_2f_20_6e_61_6d_65_2026}"
                                 Text="{Binding PaletteQuery, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,8" />
                     <ListBox x:Name="PaletteResultsBox" ItemsSource="{Binding PaletteResults}" MaxHeight="380">
                         <ListBox.InputBindings>

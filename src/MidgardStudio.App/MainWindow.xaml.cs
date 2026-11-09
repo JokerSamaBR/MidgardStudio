@@ -7,6 +7,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using MidgardStudio.App.ViewModels;
+using MidgardStudio.App.Services;
 using Wpf.Ui.Controls;
 
 namespace MidgardStudio.App;
@@ -18,13 +19,18 @@ namespace MidgardStudio.App;
 public partial class MainWindow : FluentWindow
 {
     private readonly ShellViewModel _viewModel;
+    private readonly AppSettingsService _settings;
+    private ResourceDictionary? _languageResources;
     private bool _closing;
 
-    public MainWindow(ShellViewModel viewModel)
+    public MainWindow(ShellViewModel viewModel, AppSettingsService settings)
     {
         _viewModel = viewModel;
+        _settings = settings;
         DataContext = viewModel;
+        SetLanguage(settings.Settings.Language, persist: false);
         InitializeComponent();
+        UpdateLanguageChecks();
 
         _viewModel.PropertyChanged += OnViewModelPropertyChanged;
         _viewModel.ShortcutsChanged += ApplyShortcuts;
@@ -36,6 +42,35 @@ public partial class MainWindow : FluentWindow
                 _viewModel.ActivatePaletteResultCommand.Execute(result);
         };
         ApplyShortcuts();
+    }
+
+    private void SelectEnglishLanguage(object sender, RoutedEventArgs e) => SetLanguage("en");
+
+    private void SelectPortugueseLanguage(object sender, RoutedEventArgs e) => SetLanguage("pt-BR");
+
+    private void SetLanguage(string language, bool persist = true)
+    {
+        language = string.Equals(language, "pt-BR", StringComparison.OrdinalIgnoreCase) ? "pt-BR" : "en";
+        var source = new Uri($"pack://application:,,,/Resources/Strings.{language}.xaml", UriKind.Absolute);
+        var dictionary = new ResourceDictionary { Source = source };
+        var merged = Application.Current.Resources.MergedDictionaries;
+        if (_languageResources != null) merged.Remove(_languageResources);
+        merged.Add(dictionary);
+        _languageResources = dictionary;
+        if (persist)
+        {
+            _settings.Settings.Language = language;
+            _settings.Save();
+        }
+        UpdateLanguageChecks();
+    }
+
+    private void UpdateLanguageChecks()
+    {
+        if (EnglishLanguageMenu is null || PortugueseLanguageMenu is null) return;
+        bool isPt = string.Equals(_settings.Settings.Language, "pt-BR", StringComparison.OrdinalIgnoreCase);
+        EnglishLanguageMenu.IsChecked = !isPt;
+        PortugueseLanguageMenu.IsChecked = isPt;
     }
 
     /// <summary>Closes the update popup after the user picks an action (the bound command does the rest).</summary>
