@@ -8,15 +8,13 @@
 
 </div>
 
-## Imagens do aplicativo
+## Imagem real do aplicativo
 
-Capturas e materiais visuais existentes no próprio repositório:
+Captura de tela enviada pelo usuário, mostrando o **Midgard Studio — WYO Digital Edition aberto**:
 
-![Midgard Studio WYO Digital Edition — captura do aplicativo](screenshots/readme.png)
+![Midgard Studio WYO Digital aberto — captura real enviada pelo usuário](screenshots/wyo-digital-app-open.png)
 
-![Midgard Studio WYO Digital Edition — imagem de apresentação do projeto](screenshots/banner.png)
-
-> Imagens versionadas em `screenshots/`. A captura documenta uma versão do aplicativo e pode apresentar elementos de interface anteriores à edição mais recente. Consulte a [Release atual](../../releases) para baixar o executável.
+> Captura real da interface durante o carregamento do banco de dados. Não é um mockup nem uma imagem gerada por IA. A interface da versão mais recente pode apresentar pequenas diferenças.
 
 ## Download — aplicativo pronto
 
