@@ -4,7 +4,7 @@
 
 **Editor de dados de servidor e cliente — Windows 10/11 x64**
 
-**Edição WYO Digital 1.2.0** · Aplicativo portátil · Sem instalação do .NET · Gratuito para uso permitido pela licença
+**Edição WYO Digital 1.2.1 Preview** · Aplicativo portátil · Sem instalação do .NET · Gratuito para uso permitido pela licença
 
 </div>
 
