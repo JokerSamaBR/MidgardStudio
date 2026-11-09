@@ -8,14 +8,6 @@
 
 </div>
 
-## Imagem real do aplicativo
-
-Captura de tela enviada pelo usuário, mostrando o **Midgard Studio — WYO Digital Edition aberto**:
-
-![Midgard Studio WYO Digital aberto — captura real enviada pelo usuário](screenshots/wyo-digital-app-open.png)
-
-> Captura real da interface durante o carregamento do banco de dados. Não é um mockup nem uma imagem gerada por IA. A interface da versão mais recente pode apresentar pequenas diferenças.
-
 ## Download — aplicativo pronto
 
 **[Baixar a versão Windows em Releases](../../releases)**
