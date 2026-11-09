@@ -46,7 +46,7 @@ public partial class App : Application
                 shared: true)
             .CreateLogger();
 
-        Log.Information("Midgard Studio starting up.");
+        Log.Information("Midgard Studio WYO Digital Edition starting up.");
 
         _host = Host.CreateDefaultBuilder()
             .UseSerilog()
@@ -80,7 +80,7 @@ public partial class App : Application
         // so Primary buttons, toggles, focus rings and accent-driven controls are on-brand on every machine.
         ApplicationThemeManager.Apply(ApplicationTheme.Dark, updateAccent: false);
         ApplicationAccentColorManager.Apply(
-            (Color)ColorConverter.ConvertFromString("#8D2DF2")!, ApplicationTheme.Dark, false, false);
+            (Color)ColorConverter.ConvertFromString("#36CDAA")!, ApplicationTheme.Dark, false, false);
 
         // Show the animated splash on its own UI thread, then build the shell (which loads the workspace
         // databases on this thread — several seconds). The splash keeps animating throughout.

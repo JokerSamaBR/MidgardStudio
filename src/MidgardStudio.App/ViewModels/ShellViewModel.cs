@@ -179,8 +179,8 @@ public partial class ShellViewModel : ObservableObject
             var profile = _configService.ActiveProfile;
             if (profile is not null && profile.Paths.AllExist())
                 ShowWizard = false;
-            else if (Views.ConfirmDialog.Show("Quit Midgard Studio?",
-                         "No workspace is configured yet, so closing setup will exit Midgard Studio.", yes: "Quit"))
+            else if (Views.ConfirmDialog.Show("Fechar WYO Digital Studio?",
+                         "Nenhum ambiente está configurado. Fechar a configuração encerrará o aplicativo.", yes: "Quit"))
                 Exit();
         };
         _validation.Navigate = NavigateToIssue;
@@ -503,7 +503,7 @@ public partial class ShellViewModel : ObservableObject
         try
         {
             // Open the project repository (docs + releases) in the default browser.
-            Process.Start(new ProcessStartInfo("https://github.com/fahhadalsubaie/MidgardStudio") { UseShellExecute = true });
+            Process.Start(new ProcessStartInfo("https://digital.wyoplay.com/") { UseShellExecute = true });
         }
         catch { /* shell-open failure is non-fatal */ }
     }
