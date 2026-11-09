@@ -8,6 +8,24 @@
 
 </div>
 
+## Capturas reais do WYO Digital Edition
+
+As três capturas abaixo correspondem às telas **Itens**, **Monstros** e **Carregamento** do aplicativo WYO Digital Edition v1.2.1.
+
+> **Imagens pendentes de envio:** os links abaixo estão preparados para receber os PNGs originais. Até que os arquivos sejam enviados à pasta `screenshots/`, o GitHub poderá mostrar imagens indisponíveis. Nenhuma imagem foi simulada.
+
+### Editor de Itens
+
+![WYO Digital Edition aberto — editor de itens](screenshots/wyo-digital-items-open.png)
+
+### Editor de Monstros
+
+![WYO Digital Edition aberto — editor de monstros](screenshots/wyo-digital-mobs-open.png)
+
+### Tela de carregamento
+
+![WYO Digital Edition — tela de carregamento](screenshots/wyo-digital-splash.png)
+
 ## Download — aplicativo pronto
 
 **[Baixar a versão Windows em Releases](../../releases)**
