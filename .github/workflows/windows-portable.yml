@@ -74,6 +74,8 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Baixar metadados da versão
+        uses: actions/checkout@v4
       - name: Baixar pacote já testado
         uses: actions/download-artifact@v4
         with:
