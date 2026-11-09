@@ -12,7 +12,7 @@
 
 As três capturas abaixo correspondem às telas **Itens**, **Monstros** e **Carregamento** do aplicativo WYO Digital Edition v1.2.1.
 
-> **Imagens pendentes de envio:** os links abaixo estão preparados para receber os PNGs originais. Até que os arquivos sejam enviados à pasta `screenshots/`, o GitHub poderá mostrar imagens indisponíveis. Nenhuma imagem foi simulada.
+> Capturas originais do Midgard Studio WYO Digital Edition v1.2.1, fornecidas pelo usuário.
 
 ### Editor de Itens
 
