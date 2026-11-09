@@ -3,7 +3,11 @@
   "project_id": "midgardstudio",
   "status": "Versão 1.2.1 Preview",
   "description": "Aplicativo portátil Windows x64 para edição de dados de servidor e cliente, navegação GRF somente leitura, validações e backups. Menus principais com seleção entre português brasileiro e inglês.",
-  "images": [],
+  "images": [
+    "docs/public-showcase/images/wyo-digital-items-open.png",
+    "docs/public-showcase/images/wyo-digital-mobs-open.png",
+    "docs/public-showcase/images/wyo-digital-splash.png"
+  ],
   "updates": [
     {
       "slug": "midgard-wyo-121",
