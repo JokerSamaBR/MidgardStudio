@@ -8,12 +8,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <Deterministic>true</Deterministic>
-    <Company>Midgard Studio</Company>
-    <Product>Midgard Studio</Product>
-    <Authors>Kyoshio</Authors>
+    <Company>WYO Digital</Company>
+    <Product>Midgard Studio — WYO Digital Edition</Product>
+    <Authors>Kyoshio; WYO Digital (edição derivada)</Authors>
     <!-- Release/installer version. Bump per release; flows to AssemblyVersion + FileVersion. -->
-    <Version>1.1.0</Version>
-    <NeutralLanguage>en</NeutralLanguage>
+    <Version>1.2.0</Version>
+    <NeutralLanguage>pt-BR</NeutralLanguage>
     <!-- Release builds ship no PDBs, so the published portable is a single clean exe. Debug keeps symbols. -->
     <DebugType Condition="'$(Configuration)' == 'Release'">none</DebugType>
     <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>

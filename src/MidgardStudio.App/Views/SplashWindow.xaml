@@ -18,7 +18,7 @@
             </RadialGradientBrush>
         </Border.Background>
         <Border.Effect>
-            <DropShadowEffect Color="#8D2DF2" BlurRadius="48" ShadowDepth="0" Opacity="0.45" />
+            <DropShadowEffect Color="#36CDAA" BlurRadius="48" ShadowDepth="0" Opacity="0.45" />
         </Border.Effect>
         <Border.RenderTransform>
             <ScaleTransform x:Name="CardScale" ScaleX="0.92" ScaleY="0.92" />
@@ -30,7 +30,7 @@
                      Margin="0,-66,0,0" Opacity="0.5" RenderTransformOrigin="0.5,0.5" IsHitTestVisible="False">
                 <Ellipse.Fill>
                     <RadialGradientBrush>
-                        <GradientStop Color="#5C9A3DF5" Offset="0.0" />
+                        <GradientStop Color="#5C36CDAA" Offset="0.0" />
                         <GradientStop Color="#00120A20" Offset="0.7" />
                     </RadialGradientBrush>
                 </Ellipse.Fill>
@@ -50,9 +50,9 @@
                     </Image.RenderTransform>
                 </Image>
 
-                <TextBlock x:Name="TitleText" Text="Midgard Studio" FontSize="32" FontWeight="SemiBold"
+                <TextBlock x:Name="TitleText" Text="WYO DIGITAL" FontSize="32" FontWeight="SemiBold"
                            HorizontalAlignment="Center" Margin="0,16,0,0" Foreground="#E8E2F4" />
-                <TextBlock Text="S E R V E R   ·   C L I E N T   ·   O N E   S T U D I O" FontSize="9.5"
+                <TextBlock Text="M I D G A R D   S T U D I O   ·   E D I T I O N" FontSize="9.5"
                            HorizontalAlignment="Center" Margin="0,7,0,0" Foreground="#8A82A8" />
 
                 <!-- Indeterminate shimmer progress -->
@@ -61,7 +61,7 @@
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                 <GradientStop Color="#008D2DF2" Offset="0.0" />
-                                <GradientStop Color="#D916FB" Offset="0.5" />
+                                <GradientStop Color="#8EF2CC" Offset="0.5" />
                                 <GradientStop Color="#008D2DF2" Offset="1.0" />
                             </LinearGradientBrush>
                         </Border.Background>
@@ -70,7 +70,7 @@
                         </Border.RenderTransform>
                     </Border>
                 </Border>
-                <TextBlock Text="Loading your workspace…" FontSize="11" HorizontalAlignment="Center"
+                <TextBlock Text="Carregando seu ambiente de trabalho…" FontSize="11" HorizontalAlignment="Center"
                            Margin="0,13,0,0" Foreground="#6E6788" />
             </StackPanel>
         </Grid>

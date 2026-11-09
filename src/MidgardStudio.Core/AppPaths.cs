@@ -1,27 +1,36 @@
 namespace MidgardStudio.Core;
 
 /// <summary>
-/// Central, Windows-standard locations for the files Midgard Studio creates. Small user config lives in
-/// Roaming AppData (may sync across machines); logs are machine-local in Local AppData; backups live under
-/// the user's Documents so they're easy to find and copy. All use the "Midgard Studio" app folder.
+/// Storage for the WYO Digital edition, isolated from the original program.
+/// No implicit migrations of original profiles or backups.
 /// </summary>
 public static class AppPaths
 {
-    private const string AppFolder = "Midgard Studio";
+    public const string DefaultGameHome = @"D:\GAME\MidgardStudio_WYO_Digital";
 
-    /// <summary>%APPDATA%\Midgard Studio — settings + workspace profiles (small; may roam).</summary>
-    public static string RoamingDir { get; } = Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), AppFolder);
+    /// <summary>
+    /// Absolute override wins; otherwise use D:\GAME if present, falling back to
+    /// a distinct LocalAppData location on PCs without D:\GAME.
+    /// </summary>
+    public static string ResolveHome(string? overrideHome, bool gameDriveAvailable, string localAppData)
+    {
+        if (!string.IsNullOrWhiteSpace(overrideHome) && Path.IsPathFullyQualified(overrideHome))
+            return Path.GetFullPath(overrideHome);
+        if (gameDriveAvailable)
+            return DefaultGameHome;
+        return Path.Combine(localAppData, "WYO Digital", "MidgardStudio");
+    }
 
-    /// <summary>%LOCALAPPDATA%\Midgard Studio — logs and other machine-local, disposable data.</summary>
-    public static string LocalDir { get; } = Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), AppFolder);
+    public static string RootDir { get; } = ResolveHome(
+        Environment.GetEnvironmentVariable("WYO_MIDGARD_HOME"),
+        Directory.Exists(@"D:\GAME"),
+        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
 
-    /// <summary>Documents\Midgard Studio\Backups — user-visible save snapshots.</summary>
-    public static string BackupsDir { get; } = Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), AppFolder, "Backups");
+    public static string RoamingDir { get; } = Path.Combine(RootDir, "config");
+    public static string LocalDir { get; } = RootDir;
+    public static string BackupsDir { get; } = Path.Combine(RootDir, "backups");
 
-    /// <summary>The pre-1.0 backups location (%APPDATA%\Midgard Studio\backups), kept only so a one-time
-    /// migration can move old snapshots into <see cref="BackupsDir"/>.</summary>
-    public static string LegacyRoamingBackupsDir { get; } = Path.Combine(RoamingDir, "backups");
+    /// <summary>Legacy snapshots exclusively inside this edition.</summary>
+    public static string LegacyRoamingBackupsDir { get; } =
+        Path.Combine(RootDir, "legacy-backups");
 }

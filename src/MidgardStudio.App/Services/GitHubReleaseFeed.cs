@@ -15,8 +15,8 @@ namespace MidgardStudio.App.Services;
 public sealed class GitHubReleaseFeed : IReleaseFeed
 {
     /// <summary>The human releases page; the banner links here when a release omits its own <c>html_url</c>.</summary>
-    public const string ReleasesPage = "https://github.com/fahhadalsubaie/MidgardStudio/releases";
-    private const string LatestApi = "https://api.github.com/repos/fahhadalsubaie/MidgardStudio/releases/latest";
+    public const string ReleasesPage = "https://github.com/JokerSamaBR/MidgardStudio/releases";
+    private const string LatestApi = "https://api.github.com/repos/JokerSamaBR/MidgardStudio/releases/latest";
 
     private static readonly HttpClient Http = CreateClient();
 

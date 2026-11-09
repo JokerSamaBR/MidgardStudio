@@ -39,7 +39,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <AssemblyName>Midgard Studio</AssemblyName>
+    <AssemblyName>Midgard Studio WYO Digital</AssemblyName>
     <RootNamespace>MidgardStudio.App</RootNamespace>
     <ApplicationIcon>Assets\app.ico</ApplicationIcon>
 

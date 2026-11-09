@@ -18,7 +18,7 @@
             </RadialGradientBrush>
         </Border.Background>
         <Border.Effect>
-            <DropShadowEffect Color="#8D2DF2" BlurRadius="44" ShadowDepth="0" Opacity="0.42" />
+            <DropShadowEffect Color="#36CDAA" BlurRadius="44" ShadowDepth="0" Opacity="0.42" />
         </Border.Effect>
         <Border.RenderTransform>
             <ScaleTransform x:Name="CardScale" ScaleX="0.94" ScaleY="0.94" />
@@ -35,7 +35,7 @@
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <Image Source="/Assets/logo.png" Width="24" Height="24" Margin="0,0,9,0"
                            RenderOptions.BitmapScalingMode="HighQuality" />
-                    <TextBlock Text="Midgard Studio" FontSize="13.5" FontWeight="SemiBold" Foreground="#E8E2F4" VerticalAlignment="Center" />
+                    <TextBlock Text="Midgard Studio · WYO Digital" FontSize="13.5" FontWeight="SemiBold" Foreground="#E8E2F4" VerticalAlignment="Center" />
                     <Border Background="#2A2140" CornerRadius="6" Padding="7,1" Margin="9,0,0,0" VerticalAlignment="Center">
                         <TextBlock x:Name="CurrentVersionText" Foreground="#BBA9E6" FontSize="11" />
                     </Border>

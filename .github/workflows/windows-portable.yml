@@ -1,0 +1,100 @@
+name: Compilar Midgard Studio WYO Digital para Windows
+
+on:
+  push:
+    branches: [main, "feature/wyo-digital-portable-v1"]
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "lib/**"
+      - "Directory.Build.props"
+      - "MidgardStudio.slnx"
+      - "packaging/**"
+      - ".github/workflows/windows-portable.yml"
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows-portable:
+    name: Testar e compilar Windows x64
+    runs-on: windows-latest
+    steps:
+      - name: Baixar o projeto
+        uses: actions/checkout@v4
+      - name: Preparar SDK .NET 8 e 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+      - name: Restaurar dependências
+        run: dotnet restore MidgardStudio.slnx
+      - name: Compilar solução
+        run: dotnet build MidgardStudio.slnx -c Release --no-restore
+      - name: Executar testes
+        run: dotnet test tests/MidgardStudio.Tests/MidgardStudio.Tests.csproj -c Release --no-restore --logger "trx;LogFileName=tests.trx"
+      - name: Publicar aplicativo portátil
+        run: dotnet publish src/MidgardStudio.App/MidgardStudio.App.csproj -c Release /p:PublishProfile=win-x64
+      - name: Empacotar executável e licença
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $pub = "src/MidgardStudio.App/bin/publish/win-x64"
+          $exe = Join-Path $pub "Midgard Studio WYO Digital.exe"
+          if (!(Test-Path $exe)) { throw "Executável portátil não encontrado em $exe" }
+          New-Item -ItemType Directory -Force -Path "dist/package" | Out-Null
+          Copy-Item "$pub/*" "dist/package/" -Recurse -Force
+          Copy-Item "packaging/Iniciar_WYO_Studio.bat" "dist/package/"
+          Copy-Item "LICENSE" "dist/package/LICENSE.txt"
+          Copy-Item "docs/WYO_EDITION.md" "dist/package/LEIA-ME-WYO.md"
+          Compress-Archive -Path "dist/package/*" -DestinationPath "dist/MidgardStudio_WYO_Digital_Windows_x64.zip" -CompressionLevel Optimal -Force
+          $hash = (Get-FileHash "dist/MidgardStudio_WYO_Digital_Windows_x64.zip" -Algorithm SHA256).Hash
+          "$hash  MidgardStudio_WYO_Digital_Windows_x64.zip" | Set-Content -Encoding ascii "dist/SHA256SUMS.txt"
+          Write-Host "Pacote Windows gerado com sucesso."
+      - name: Disponibilizar download
+        uses: actions/upload-artifact@v4
+        with:
+          name: MidgardStudio_WYO_Digital_Windows_x64
+          path: |
+            dist/MidgardStudio_WYO_Digital_Windows_x64.zip
+            dist/SHA256SUMS.txt
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
+
+  release-preview:
+    name: Disponibilizar preview em Releases
+    needs: windows-portable
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Baixar pacote já testado
+        uses: actions/download-artifact@v4
+        with:
+          name: MidgardStudio_WYO_Digital_Windows_x64
+          path: dist
+      - name: Criar a primeira release de preview
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG="v1.2.0-wyo-preview.1"
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Release $TAG já existe; nenhuma sobrescrita foi realizada."
+            exit 0
+          fi
+          gh release create "$TAG" \
+            dist/MidgardStudio_WYO_Digital_Windows_x64.zip \
+            dist/SHA256SUMS.txt \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title "Midgard Studio WYO Digital 1.2.0 — Preview" \
+            --notes "Aplicativo portátil Windows x64 (self-contained). Extraia em D:\GAME\MidgardStudio_WYO_Digital\App e execute Iniciar_WYO_Studio.bat. Mantém créditos e licença original MIT + Commons Clause. Compilação e testes automatizados aprovados; teste visual manual em Windows ainda recomendado." \
+            --prerelease

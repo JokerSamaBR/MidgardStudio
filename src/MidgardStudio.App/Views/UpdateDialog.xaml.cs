@@ -77,7 +77,7 @@ public partial class UpdateDialog : Window
             default: // UpToDate
                 Configure("#2249C97A", "#5AE0A0", SymbolRegular.CheckmarkCircle48,
                     "You're up to date",
-                    $"Midgard Studio {_currentVersion} is the latest version.");
+                    $"WYO Digital Edition {_currentVersion} is the latest version.");
                 PrimaryBtn.Visibility = Visibility.Collapsed;
                 _primaryAction = null;
                 SecondaryBtn.Content = "Close";
