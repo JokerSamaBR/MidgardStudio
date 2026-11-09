@@ -1,0 +1,30 @@
+{
+  "publish": true,
+  "project_id": "midgardstudio",
+  "status": "Versão 1.2.1 Preview",
+  "description": "Aplicativo portátil Windows x64 para edição de dados de servidor e cliente, navegação GRF somente leitura, validações e backups. Menus principais com seleção entre português brasileiro e inglês.",
+  "images": [],
+  "updates": [
+    {
+      "slug": "midgard-wyo-121",
+      "title": "Midgard Studio WYO Digital 1.2.1 Preview",
+      "date": "2026-11-09",
+      "category": "Ferramentas",
+      "summary": "Versão Windows portátil publicada com opção de idioma e abertura em janela menor.",
+      "sections": [
+        {
+          "title": "O que foi publicado",
+          "bullets": [
+            "Seletor de idioma Português (Brasil) ou English nos menus principais.",
+            "Janela inicial menor e redimensionável.",
+            "Pacote Windows x64 disponibilizado em Releases."
+          ]
+        },
+        {
+          "title": "Limites",
+          "body": "A tradução dos painéis internos permanece parcial. As capturas reais das telas de itens e monstros foram adicionadas ao README do projeto."
+        }
+      ]
+    }
+  ]
+}
